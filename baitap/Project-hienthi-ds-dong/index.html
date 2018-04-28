@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A simple guide to getting started with Vue.js</title>
+    <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+
+<body>
+    <div id="study">
+        <h1>{{ programingLangs.length }} {{ title | uppercase }}</h1>
+        <h2>euclid1990</h2>
+        <label class="labelLang" for="lang">Add More</label>
+        <input type="text" name="lang" value="" placeholder="Type name and press enter to add language." v-model="lang" v-on="keyup:addLang(lang, $event) | key enter">
+        <!--v-on keyup kết hợp vs nút enter (lang:nd đc thêm , $event:truy cập vào sự kiện DOM ban đầu trong một trình
+ xử lý câu lệnh nội tuyến.)-->
+        <label for="learned">Learned</label>
+        <input type="checkbox" v-model="learned">
+        <!--click vào checkbox để để thêm learned-->
+        <!--k bấm thì mặc định là false-->
+        <ul>
+            <li v-transition="expand" v-repeat="programingLangs" v-on="click: learned = !learned" class="language {{ learned ? 'learned' : '' }}">
+                {{ content }} {{ learned ? '(Done)' : '(Must to learn)' }}
+            </li>
+            <!--v-transition hiệu ứng  là 1 class có css đc xd sẵn||  v-repeat : lặp như for-->
+            <!--v-on click để thay đổi ngược lại-->
+        </ul>
+    </div>
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>

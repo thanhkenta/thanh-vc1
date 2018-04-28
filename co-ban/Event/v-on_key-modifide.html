@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Event</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+	<p>Modifiers key : sd key de thuc hien event</p>
+	<div id="event">
+    <input type="text" v-on:keyup.enter="showValueEnter" v-on:keyup.ctrl.enter="showValueCtrlEnter" v-bind:style="styleobj" placeholder="Enter your name"/>
+    <h3> {{name}}</h3>
+  </div>
+</body>
+<script>
+
+	var vm = new Vue({
+      el: '#event',
+      data: {
+        name:'',
+        styleobj: {
+          width: "30%",
+          padding: "12px 20px",
+          margin: "8px 0",
+          boxSizing: "border-box"
+        }
+      },
+      methods : {
+        showValueEnter(event) {	//target trả về phần tử các kích hoạt sự kiện
+          this.name=event.target.value; 	// lấy value từ input
+        },
+        showValueCtrlEnter(event) {
+          alert(event.target.value)
+        }
+      }
+    });
+</script>
+</html>

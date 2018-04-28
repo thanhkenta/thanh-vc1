@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tạo computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+	<div id="app">
+		<h3 style="color: red">{{convert}}</h3>	<!-- trỏ vào convert là lấy get(get là mặc định) -->
+	</div>
+	
+</body>
+<script>
+	var thanh = new Vue({
+		el:"#app",
+		data:{
+			name : 'nguyendinhthanh@vccorp.vn'
+		},
+		computed:{
+			convert:{
+				get:function(){
+					return this.name;
+				},
+				set:function(name){				// lấy name truyền vào
+					return this.name = name;
+				}
+			}
+		}
+	});
+	thanh.convert = "hahahahahah";	//là đi vào hàm set truyền name
+</script>
+</html>

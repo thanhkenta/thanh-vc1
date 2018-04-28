@@ -1,0 +1,15 @@
+﻿APi là phương thức giúp kết nối các thư viện hoặc ứng dụng
+-tất cả các UWD lớn đều có rất nhiều API
+.
+
+Cấu trúc REST : - Sự nhất quán trong API
+		- Kết nối không trạng thái, không cần thông tin phiên làm việc phía máy chủ.
+		- Sử dụng các mã trạng thái của HTTP
+		-Sử dụng đường dẫn web URL có phân cấp logic.
+		-Đánh phiên bản trong URL chứ không đưa vào HTTP header.
+		
+->REST là một hệ thống quy tắc đơn giản giúp truyền tải dữ liệu qua HTTP hiệu quả
+-> RESTful API giúp cho người dùng sử dụng dễ dàng và mục đích chính cũng là tăng
+ cường trải nghiệm người dùng.
+
+Chi tiết về REST : https://allaravel.com/laravel-tutorials/co-ban-ve-rest-va-restfull-api/

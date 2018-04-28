@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mixin</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	
+
+	<script>
+// Cơ bản
+
+/*          var vm = new Vue({
+            el: '#databinding',
+            data: {
+            },
+            methods : {
+            },
+         });*/
+/*		var myMixin = {
+			created:function(){
+				this.hello()
+			},
+			methods:{
+				hello:function(){
+					alert('hahahahas');
+				}
+			}
+		}
+		var Component = Vue.extend({
+			mixins:[myMixin]
+		})
+		var component = new Component();*/
+	</script>
+
+	<script>
+//đồng nhất
+	var mixin = {
+	  data: function () {
+	    return {
+	      message: 'chào anh',
+	      foo: 'abc'
+	    }
+	  }
+	}
+	var alo =  new Vue({
+		el:'#app',
+	  mixins: [mixin],
+	  data: function () {
+	    return {
+	      message: 'chào chị',
+	      bar: 'def'
+	    }
+	  },
+	  created: function () {
+	    console.log(this.$data)
+	    // => { message: "chào chị", foo: "abc", bar: "def" }
+	  }
+	});
+	</script>			
+	<div id="app">
+		<p>{{created}}</p>
+		<p v-text="created"></p>
+	</div>
+</body>
+</html>

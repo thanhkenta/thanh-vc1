@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tạo component</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+	<div id="app">
+		<h3>Sự khác biệt giữa method và computed</h3>
+		<button v-on:click="a++">add A</button>
+		<button v-on:click="b++">add B</button>
+		<p>A - {{a}}</p>
+		<p>B - {{b}}</p>
+		<p>age + a = {{addA()}}</p>		
+		<p>age + b = {{addB()}}</p>
+		<!-- sd computed addA va addB-->
+		<!-- sd methods addA() va addB()-->
+	</div>
+</body>
+<script>
+	new Vue({
+		el:'#app',
+		data:{
+			a:0,
+			b:0,
+			age:21
+		},
+		/*computed:{
+			addA:function(){
+				console.log('addA');
+				return this.a + this.age;
+			},
+			addB:function(){
+				console.log('addB');
+				return this.b + this.age;
+			}
+		},*/
+		methods:{
+			addA:function(){
+				console.log('addA');
+				return this.a + this.age;
+			},
+			addB:function(){
+				console.log('addB');
+				return this.b + this.age;
+			}
+		}
+	});
+</script>
+</html>

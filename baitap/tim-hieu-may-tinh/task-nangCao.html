@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Task</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<div id="tasks">
+			<div>
+				<a href="http://timhieumaytinh.com/khoa-hoc/"><img src="http://timhieumaytinh.com/wp-content/uploads/2015/11/THMT-Logo-340x100.png"></a>
+				<h2 v-show="inProcess.length">Nhiệm Vụ Mới ({{inProcess.length}})</h2>	<!--đếm lấy ra complete là false -->
+				<ol class="list-group">
+					<!-- <li v-for="task in tasks" class="list-group-item">     lặp ra tất cả -->
+					<li v-for="task in inProcess" class="list-group-item">		<!-- chỉ lấy khi lọc ra complete là false -->
+						<span @dblclick="editTask(task)">
+							{{task.body}}
+						</span>
+						<button @click="removeTask(task.id)">&#10007;</button>
+						<button @click="completeTask(task)">&#10004;</button>
+						
+						
+					</li>
+				</ol>
+				
+			</div>
+			
+			<form @submit="addTask">
+				<div class="form-group">
+					<input v-el:new 
+							v-model="newTask" 
+							class="form-control" 
+							placeholder="Tôi muốn...">
+				</div>
+				
+				<button class="btn btn-primary" type="submit">Thêm Nhiệm Vụ</button>
+				<button class="btn btn-outline-danger" type="submit" @click="completeAll">Hoàn Thành Tất</button>
+			</form>
+
+			<div v-if="inTrue.length">
+				<h3>Đã hoàn tất({{inTrue.length}})</h3>	<!-- chỉ lấy khi lọc ra complete là true -->
+				<ol class="list-group">
+					<li v-for="task in inTrue" class="list-group-item">
+						<span>{{task.body}}</span>
+						<button @click="toggleTask(task)">&#10007;</button>
+					</li>
+					<button type="submit" class="btn btn-danger" @click="deleteComplete">Xóa tất cả đã hoàn tất</button>
+				</ol>
+			</div>
+
+			<hr>
+			<pre>{{$data | json}}</pre>
+		</div>				
+	</div>
+
+	
+</body>
+<script>
+	new Vue({
+	el: '#tasks',
+	
+	data: {
+		tasks: [
+			{
+				body:"Thiết Kế Web", 
+				completed: false,
+				id:1
+			}, 			
+		],
+		
+		newTask: ''
+	},
+	
+	computed:{
+		//lọc false
+		inProcess:function(){
+			return this.tasks.filter(function(task){
+				return ! task.completed;
+			});
+		},
+		//lọc true(Đã hoàn tất)
+		inTrue:function(){
+			return this.tasks.filter(function(task){
+				return  task.completed;
+			});
+		}
+	},
+
+	methods: {
+		//thêm theo id ++
+		addTask: function(e){
+			e.preventDefault();
+	      	if(this.newTask){
+	      	let id_map = this.tasks.slice(this.tasks.length-1);
+	        console.log(id_map);
+	        let leng = this.tasks.length-1;		//Nếu xóa hết thì tồn tại or k tồn tại this.tasks.length-> vẫn thêm vào mảng
+	        console.log(leng);
+	        let id_new = this.tasks[leng].id;
+	        let id_tang = id_new + 1;
+	        this.tasks.push({
+	          body: this.newTask,
+	          completed: false,
+	          id:id_tang
+	          //id:new Date().getTime()
+	        });
+	        this.newTask = '';
+	      	}
+		},
+		//xóa
+		removeTask: function(id){
+			//this.tasks.$remove(task);
+	      	for(let i = 0 ; i < this.tasks.length; i++){
+	      		if(this.tasks[i].id == id){
+	        		this.tasks.splice(i,1);
+	        	}
+	      	}
+		},
+
+		//dblclick để sửa (xóa chính nó rồi lấy chính nó để thêm vào)
+		editTask(task){
+			//xóa 
+			this.removeTask(task.id);
+			//cập nhập input
+			this.newTask = task.body;
+			//đưa con trỏ vào trong input
+			this.$els.new.focus();
+		},
+
+		//chuyển đổi sang true
+		completeTask(task){
+			task.completed = true;
+		},
+
+		//chuyển tất cả sang hoàn thành tất
+		completeAll(){
+			return this.tasks.forEach(function(task){
+				task.completed = true;
+			})
+		},
+
+		// chuyển từ đã hoàn thành lên nhiệm vụ mới
+		toggleTask(task){
+			task.completed = ! task.completed;
+		},
+
+		// xóa tất cả khi đã hoàn tất
+		deleteComplete(){
+			return this.tasks = this.tasks.filter(function(task){
+				return !task.completed;
+			})
+		}
+	}
+});
+
+</script>
+
+
+<style>
+	li.list-group-item button {
+    float: right;
+	}
+	.btn.btn-danger {
+    display: inline-block;
+    width: 18%;
+    margin-top: 20px;
+	}
+</style>
+</html>

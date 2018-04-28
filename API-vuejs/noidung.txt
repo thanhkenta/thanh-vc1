@@ -1,0 +1,37 @@
+﻿---$mount()  : tạo ra để thay thế cho el lúc chưa đc khởi tạo để kết hợp vs HTML
+-> sd để bắt đầu kết nối khi vue chưa đc kết nối vs HTML
+
+---var vm = new Vue({
+
+})
+thêm mới trong data:  Vue.set(vm.someObject, 'b', 2)
+		     - this.$set(this.someObject, 'b', 2)
+*chú ý : nêu khai báo rông thì ngoài hàm có thể : vm.message='hello'
+
+
+--- vm.a = vm.$data.a   :sd $data tránh xung đột các thuộc tính phương thức của api
+
+- methods: truyền tham số thì thêm (); trong v- thì v-on:click="greet"
+
+--- el : gắn kết vs DOM element   -> sau khi gắn kết có thể truy cập vm.$el
+ vd el : https://vi.vuejs.org/v2/guide/instance.html#mobile-bar
+
+
+--- $props : truy cập vào props
+--- $options: lấy tùy chỉnh trong thuộc tính
+--- $slots : truy cập trương trình theo nd đc phân bố
+	vd L slot="foo" -> vm.$slots.foo
+
+--- vm.$on : nghe 1 sự kiện tùy chỉnh vs vm hiện tại -> kích hoạt bởi vm.$emit
+--- vm.$once : lắng nghe sự kiện nhưng chỉ 1 lần . NG nghe sẽ bị khóa khi nó nghe lần đầu tiên
+--- vm.$off  : loại bỏ event listers
+
+vm.$emit : kích hoạt 1 sự kiện hiện tại, bất kì đối số bổ sung đc -> phát sự kiện cho cha với sự kiện
+thông qua vào chức năng gọi lại của ng nghe
+
+--- :key="item.id"  -> phân biêt các nd vs nhau khi chạy v-for
+
+---$event đôi khi chúng ta cũng cần phải truy cập vào sự kiện DOM ban đầu trong một trình
+ xử lý câu lệnh nội tuyến.
+ bạn có thể chuyển nó vào một phương thức sử dụng biến sự kiện $event
+-> nhận phần tử đã kích hoạt 1 sự kiện cụ thể

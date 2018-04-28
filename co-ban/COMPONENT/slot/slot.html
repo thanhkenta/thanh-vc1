@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="app">
+  <h2>We can use slots to populate content</h2>
+  <app-child>
+    <h4 style="color:red" slot="thanh">Change title </h4>
+    <h3>This is slot number one</h3>
+    
+  </app-child>
+  <app-child>
+    <h3>This is slot number two</h3>
+    <small>I can put more info in, too!</small>
+    <h1 slot="headerinfo">I will populate the headerinfo slot!</h1>
+  </app-child>
+</div>
+
+<script type="text/x-template" id="childarea">
+  <div class="child">
+  
+    <slot name="headerinfo"></slot>	<!-- h1 có slot đc đặt ở vị trí đầu tiên -->
+    <slot></slot>	<!-- vị trí nd của cha -->
+    
+    <p>It's a veritable slot machine!<br> <!-- vị trí cuối cùng -->
+    Ha ha aw</p>
+    <slot name="thanh"></slot> <!-- lên vị trí cuối cho app-child-->
+  </div>
+  
+  <!-- slot phải k có name (mặc định là trống),nếu có name sẽ nhận theo name(k nhận component cha) -->
+</script>
+</body>
+
+
+<script>
+	//component con sẽ chèn nd của mình vào nội dung của cha(thêm vào cuối app-child)
+const Child = {
+  template: '#childarea'//nd là id childarea
+};
+
+new Vue({
+  el: '#app', //id
+  components: {//tạo
+    appChild: Child // div là app-child : const Child
+  }
+});
+</script>
+</html>

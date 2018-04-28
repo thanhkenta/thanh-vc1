@@ -1,0 +1,42 @@
+﻿--tìm hiểu : commit https://thachpham.com/tools/hieu-them-ve-commit-va-staging-area-git.html
+
+
+1.- Vuex là thư viện quản lý trạng thái các component trong vuejs
+- quản lý chúng trong 1 bộ máy toàn cục
+1.https://viblo.asia/p/su-dung-vuejs-va-vuex-nhu-the-nao-la-hop-ly-trong-du-an-maGK7zLa5j2
+
+
+2. - Model để chứa dl , ng dùng có thể tương tác View để tác động vào model  ->> ảnh hưởng đến các dự án lớn
+
+-- sd giải pháp luồng dl 1 chiều . (khi có một dữ liệu mới, luồng này sẽ bắt đầu lại từ đầu.)
+==>sd trong những dự án tầm trung và lớn 
+-Vuex giúp cho việc quản lý dự án của chúng ta trở nên hiệu quả.
+ Nó cân bằng giữa tốc độ và hiệu năng của dự án. 
+
+-------------------------------------------------------------------------------------------
+Các Khái niệm cơ bản: https://viblo.asia/p/vue-x-va-nhung-thu-co-ban-nhat-bJzKmMGXK9N
+
+1.state: trạng thái: kho lưu trữ chứa tất cả các trạng thái của ƯD  computed:{}
+
+2.getter : bộ lọc trạng thái. Nếu nhiều component cần làm điều này, computed:{}
+chúng ta có thể định nghĩa getter trong store để thực hiện.
+	
+3.mutations: thay đổi trạng thái
+-Trạng thái không thể thay đổi trực tiếp mà chỉ được thay đổi thông qua commit
+- this.$store.commit('reducePrice_store');
+
+4.actionns : == mutations	https://allaravel.com/tutorials/vuejs-framework/vuex-la-gi/
+- Một action có thể gọi đến nhiều mutations.
+- Actions là hoạt động bất đồng bộ -> sd khi(bất đồng bộ) cần thiết
+
+===> Vuex nhìn thấy tại sao không đưa các trạng thái được chia sẻ của các component ra
+ và quản lý chúng trong một bộ máy toàn cục, và đó chính là lý do cho sự ra đời của Vuex.
+
+-----+Trung tâm của mọi ứng dụng Vuex là kho chứa (store), một kho chứa đơn giản là nơi
+ khai báo, lưu trữ các trạng thái ứng dụng. Có hai sự khác biệt giữa kho chứa Vuex 
+và đối tượng toàn cục thông thường:
+
+----Kho chứa Vuex có thể tác động lại các Vue component lấy trạng thái từ đó, 
+trạng thái sẽ được cập nhật khi có thay đổi một cách hiệu quả. Các trạng thái 
+trong kho chứa không thể thay đổi trực tiếp, chỉ có một cách duy nhất để thay đổi
+ trạng thái là phải commit.

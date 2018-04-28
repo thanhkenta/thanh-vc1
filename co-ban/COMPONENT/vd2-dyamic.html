@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tạo component</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+	<p>Sd v-bind:is=""</p>
+    <div id="app">
+    	<!-- ax:  ở đây là sd bất cứ thẻ có tên là gì -->
+    	<ax v-bind:is="view"></ax>		
+    </div>
+</body>
+<script>
+	var a = new Vue({
+		el:'#app',
+		data:{
+			view:'thanh'	//lẽ ra thẻ là <thanh></thanh> nhưng gán là view -> v-bind:is="view"
+		},
+		components:{
+			'thanh':{
+				template:'<div style="color:red">Dynamic Component</div>'
+			}
+		}
+	});
+</script>
+</html>

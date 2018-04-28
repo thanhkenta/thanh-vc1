@@ -1,0 +1,19 @@
+﻿guide JS + (transion & animation đọc qua) + Reusability & Composition + 
+hỏi anh ngọc anh tiếp
+
+-project tham khảo :  https://madewithvuejs.com/
+
+- Tìm kiếm trên git với từ khóa vue : 
+https://github.com/search?o=desc&q=vue&s=&type=Repositories&utf8=%E2%9C%93
+
+- Api document
+
+- sample vue (mẫu vue ) -> những cái đơn giản nhất mà thôi
+
+
+-vuex
+
+Khi đọc thì bạn chỉ cần biết được Vuejs nó hỗ trợ bạn làm những gì. 
+Còn làm như thế nào thì bạn chưa cần biết. Sau đó thì bạn sẽ bắt đầu đi làm một ứng dụng.
+ Khi làm thì bạn sẽ biết được là vấn đề đó cần tìm hiểu chỗ nào để làm vì bạn đã đọc qua API rồi. 
+Cứ thế rồi tiếp tục thôi, khi bạn làm nếu gặp vấn đề thì bạn sẽ biết cần tìm hiểu tiếp cái gì

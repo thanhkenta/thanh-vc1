@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tạo component</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+	<p>Component tạo ra các thành phần tùy chỉnh, có thể sd lại trong HTML.</p>
+    <div id="app">
+    	<thanh></thanh>
+    </div>
+    <div id="app2">
+    	<thanh></thanh>
+    </div>
+</body>
+
+
+<script>
+// Tạo component gián tiếp
+/*	Vue.component('thanh',{
+		template:'<div><h1>This is coming from component</h1></div>'
+	});
+	var a = new Vue({
+		el:'#app',		//tạo id tương ứng
+	});
+	var a = new Vue({
+		el:'#app2'      //tạo id tương ứng
+	});*/
+
+// Tạo component trưc tiếp
+/*	var a =new Vue({
+		el:'#app',
+		components:{					//<----------
+			'thanh':{
+				template:'<div><h1>This is coming from component</h1></div>'
+			}
+		}
+	});
+	var b =new Vue({
+		el:'#app2',
+		components:{
+			'thanh':{
+				template:'<div><h1>This is coming from component</h1></div>'
+			}
+		}
+	});*/
+
+
+// thay đổi khi mouseover vào text
+	Vue.component('thanh',{
+		template:'<div v-on:mouseover="changename" v-on:mouseout="backname">'+
+		'<h1>Custom Component created by <span>{{name}}</span></h1></div>',
+		data:function(){
+			return{
+				name:'Thanh'
+			}
+			
+		},
+		methods:{
+			changename:function(){
+				this.name = "ThanhNguyen";
+			},
+			backname:function(){
+				this.name="Thanh";
+			}
+		}
+	});
+	var a = new Vue({
+		el:'#app'		//tạo id tương ứng
+	});
+	var b = new Vue({
+		el:'#app2'      //tạo id tương ứng
+	});
+</script>
+</html>

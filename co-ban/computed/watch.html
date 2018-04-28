@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tạo computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+	<div id="app">
+		<h3>watch lắng nghe, theo dõi sự thay đổi của dữ liệu</h3>
+		kilometer <input type="text" v-model="kilometer">
+		meter <input type="text" v-model="meter">
+	</div>
+</body>
+<script>
+	// 2 thẻ input đc ràng buộc bởi 2 thuộc tính kilometer & meter
+	new Vue({
+		el:'#app',
+		data:{
+			kilometer:0,		// gía trị khởi tạo
+			meter:0
+		},
+		watch:{
+			kilometer:function(val){			// tên watch trùng với tên data
+				this.kilometer = val;	// khi truyền val thì value(input) == val(nhập vào)
+				this.meter = val * 1000; // còn meter = số nhập vào * 1000
+			},
+			meter :function(val){
+				this.meter = val;
+				this.kilometer = val/ 1000;
+			}
+		}
+	})
+</script>
+</html>

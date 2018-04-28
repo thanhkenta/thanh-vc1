@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bộ lọc</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+	<div id = "databinding">
+         <input  v-model = "name" placeholder = "Enter Name" /><br/>
+         <span style = "font-size:25px;"><b>Letter count is : {{name | countletters}}</b></span>
+    </div>
+
+    <script type = "text/javascript">
+         var vm = new Vue({
+            el: '#databinding',
+            data: {
+               name : ""
+            },
+            filters : {
+               countletters : function(value) { 
+               // hàm này lấy value từ name rồi đếm xem có bn kí tự
+               // return value.length;
+
+
+
+               // chuyển kí tự đầu tiên thành viết hoa
+               // charAt(0) chả kí tự đầu tiên của chuỗi.toUpperCase(viết hoa chữ cái đầu tiên đó).slice(1)[lấy hết tất cả các kí tự trừ kí tự đầu tiên]
+                  return value.charAt(0).toUpperCase() + value.slice(1)
+               }
+            }
+         });
+      </script>
+</body>
+</html>

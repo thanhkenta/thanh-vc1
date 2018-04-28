@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>thêm thuộc tính vào object</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+	
+</body>
+	<script>
+		var thanh = new Vue({
+			data:{
+				user:{
+					name:'thanh'
+				}
+			}
+		});
+	// thêm = hàm set(trỏ tới thuộc tính đó,key,value)
+		Vue.set(thanh.user,'age',21);
+		console.log(thanh.user.age);
+
+	//dùng phương thức đối tượng $set
+	thanh.$set(thanh.user,'city','Hn');
+	console.log(thanh.user.city);
+
+// thêm nhiều giá trị
+	//thanh.user = Object.assign({}, thanh.user, {
+	Object.assign(thanh.user, {
+  cc: 800,
+  favoriteColor: 'Tím mộng mơ'
+});
+	console.log(thanh.user.favoriteColor);
+
+
+
+	</script>
+<!-- Hiển thị kq đá đc filter -->
+	<body>
+		<ul id='app'>
+			<li v-for="n in item">{{n}}</li>
+			<div>
+			  <span v-for="nn in 10">{{ nn }} </span>
+			</div>
+		</ul>
+		
+	</body>
+	<script>
+		var lisst = new Vue({
+			el:'#app',
+			data:{
+				numbers:[1,2,3,4,5]/*,
+				count:10*/
+			},
+			computed:{
+				item:function(){
+					return this.numbers.filter(function(number){
+						return number % 2 === 0
+					})
+				}
+			}
+		})
+	</script>
+</html>

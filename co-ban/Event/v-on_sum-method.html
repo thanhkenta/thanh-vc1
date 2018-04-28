@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Event</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+	<div id="event">
+		<button v-on:click="sum()">Tinh tong</button>
+		<h2>{{num1}} + {{num2}} = {{total}}</h2>
+	</div>
+</body>
+<script>
+	new Vue({
+		el:'#event',
+		data:{
+			num1:20,
+			num2:1,
+			total:''
+		},
+		methods:{
+			sum:function(){
+				this.total = this.num1 + this.num2
+			}
+		}
+	})
+</script>
+</html>

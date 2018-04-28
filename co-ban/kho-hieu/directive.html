@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>chỉ thị</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!-- Simple -->	
+	<!-- <div id = "databinding">
+		v-changestyle là 1 directive tùy biến
+	         <div v-changestyle>VueJS Directive</div>
+	      </div>
+	      <script type = "text/javascript">
+	         Vue.directive("changestyle",{					//tạo
+
+	         	        //e1 là phần chỉ thị đc áp dụng
+					//binding là đối số của value css
+					// vnode là phần tử tên nút đó
+
+	            bind(e1,binding, vnode) {
+	               console.log(e1);
+	               e1.style.color = "red";					//thêm style
+	               e1.style.fontSize = "30px";
+	            }
+	         });
+	         var vm = new Vue({
+	            el: '#databinding',
+	            data: {
+	            },
+	            methods : {
+	            },
+	         });
+	     </script> -->
+
+
+<!-- sd đối số truyền vào directive -->
+		<div id = "databinding">
+         <div v-changestyle = "{color:'green'}">VueJS Directive</div>
+      </div>
+
+            <script type = "text/javascript">
+         Vue.directive("changestyle",{
+            bind(e1,binding, vnode) {
+               console.log(e1);
+               console.log(binding.value.color);
+               console.log(vnode);
+               e1.style.color=binding.value.color;
+               e1.style.fontSize = "30px";
+            }
+         });
+         var vm = new Vue({
+            el: '#databinding',
+            data: {
+            },
+            methods : {
+            },
+         });
+      </script>
+</body>
+</html>

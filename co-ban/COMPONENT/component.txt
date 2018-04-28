@@ -1,0 +1,10 @@
+﻿Component là một trong những tính năng quan trọng nhất trong Vue mà mình cần phải biết.
+ Nó giúp cho việc kế thừa các thành phần HTML cơ bản, dễ dàng đóng gói và tái sử dụng code.
+ Ở mức cao hơn thì component như là custom elements mà trình biên dịch của Vue sẽ 
+gắn các xử lý vào đó. Trong một vài trường hợp nó cũng có 
+thể xuất hiện như một phần tử HTML được mở rộng (native html element extended)
+ bởi thuộc tính đặc biệt là is
+
+
+
+appUser  -> <app-user></app-user>

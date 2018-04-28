@@ -1,0 +1,15 @@
+﻿Là cách trộn lẫn nội dung và template của component cha.</h3>
+	Là quá trình phân bố nội dung
+
+
+Cái gì trong template của cha thì được biên dịch trong scope của cha
+, cái gì trong template của con thì được biên dịch trong scope của con
+
+
+thuộc tính và phương thức của con phải gắn liền với trạng thái của con, cha phải là cha
+
+- slot là dự phòng : nếu nó là rỗng -> cha sẽ nhận
+ + slot có name : Thuộc tính này được dùng để tùy biến thêm về cách phân bố nội dung
+ + name là gì thì tương ứng vs slot đó
+ + nếu k có tên sẽ lấy slot là mặc định
+ +  Nếu trong template không có slot mặc định, bất cứ nội dung nào không khớp sẽ bị bỏ đi.

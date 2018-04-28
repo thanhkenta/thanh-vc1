@@ -1,0 +1,23 @@
+﻿v-for="item in items"
+
+-lấy cả stt : (item ,index) in items
+
+- đối vs object : value in object	lấy key : (value ,key) in object
+
+- (value, key, index) in object
+
+
+---- push(): thêm vào cuối   >< pop()loại bỏ phần tử cuối
+---- shift():thêm vào đầu    ><unshift() loại bỏ phần tử đầu tiên
+---- splice() : thay thế phần tử của mảng = 1 phần tử khác ( để thay đổi mảng ban đầu )
+splice(vijtrivbatdauthaythe,sophantubiloaibo(0 la k bị loai),cacphantudcthemvao)
+
+
+-sort()sx theo bảng mã aissci
+-reverse() : sx đảo ngược stt trong mảng
+
+- slice(): lấy ra các phần tử. ngoại trừ phần tử cuốicung slice(star,end) end: vị trí cuối cùng(loại bỏ vị trí cuối cùng)
+
+- concat() : nối 1 hay nhiều mảng lại vs nhau : arr1.concat(arr2)
+
+-filter() : hàm lọc có đk => đưa ra kết quả

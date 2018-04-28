@@ -1,0 +1,81 @@
+-- 	tạo component kiểu thanh-nguyen
+	export default {
+	  name: 'TodoItem',	 tên kiểu ThanhNguyen
+	  // ...
+	}
+
+-- tạo prop ['thanhNguyen']  -> sd thanh-nguyen="xinchao"
+-- khai báo : đầy đủ(type,..)
+props: {
+  thanhNguyen: {
+    type: String,
+    required: true,
+    validator: function (value) {
+      return [
+        'syncing',
+        'synced',
+        'version-conflict',
+        'error'
+      ].indexOf(value) !== -1
+    }
+  }
+}
+
+
+
+-- component thì data phải là 1 hàm
+
+
+-- v-for  sd :key="task.id"			v-if (div cha) v-for
+
+<style scoped></style>
+
+--
+<MyComponent			->> thêm nhiều attribute
+  foo="a"
+  bar="b"
+  baz="c"
+/>
+
+
+-- sd kết quả của phương thức đã tính toán trước đó -> để đưa vào hàm mới
+
+-- <AppSidebar :style="{ width: sidebarWidth + 'px' }">
+
+-- v-bind == :
+   v-on == @
+
+
+-- ràng buộc 2 chiều : v-model
+
+-- nd ghi đè nd của phần tử : v-html   v-text
+
+-- thuộc tính yêu cầu giá trị duy nhất : rel  key  slot
+
+
+
+---	mỗi 1 prop xuống 1 dòng
+props: {
+  value: {
+    type: String,
+    required: true
+  },
+
+  focused: {
+    type: Boolean,
+    default: false
+  },
+
+  label: String,
+  icon: String
+},
+
+computed: {
+  formattedValue: function () {
+    // ...
+  },
+
+  inputClasses: function () {
+    // ...
+  }
+}

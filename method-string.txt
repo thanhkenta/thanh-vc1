@@ -1,0 +1,43 @@
+﻿string: chuỗi cha	str: chuỗi con
+**---Tìm kiếm chuỗi con
+-indexOf()   :  string.indexOf(str)	trả về kq vị trí xuất hiện đầu tiên của chuỗi con
+
+-lastIndexOf() : trả về kq vị trí xuất hiện của chuỗi con cuối cùng
+
+-search() : == indexOf()
+==> kq trả về là vị trí kí tự đầu tiên của chuỗi con đó trong chuỗi cha
+
+**--- Cắt chuỗi con
+- slice(star,end)  : string.slice(11,23)   -> lấy từ vị trí 11 đến 23
++Nếu truyền vào âm thì tính ngược lại
++string.slice(5) -> bắt đầu từ 5 đến hết
+
+- substring(star,end) ==slice  :  string.substring(11,23)  {k đc truyền số âm}
+
+- substr(star,length)  :  string.substr(11,12)	   -> bắt đầu từ 11 và lấy 12 kí tự
+
+**--- tìm kiếm và thay thế
+- replace(chuoi_can_tim, chuoi_thay_the)   : string.replace(thanh,thanhnguyen)
+
+**--chuyển từ hoa <=> thường
+toUpperCase()   : sang chữ hoa			toLowerCase()  : sang chữ thường
+
+**--- Nối thêm chuỗi  
+- dùng + 
+- string.concat("thanh","nguyễn","VCCORP",..)
+
+**-- Tìm kí tự  : charAt(vi_tri_muon_xem)  " charAt(0) -> lấy ra duy nhất vị trí đầu tiên
+
+**--chuyển đổi chuỗi sang mảng:  string.split(" ",2)  
+{tham số truyền vào là kí tự ngăn cach, so_phan_tu_can lay_ra}  -> có 2 phần tử
+
+-------------------------------------------------------------------------------------------
+\n : tạo 1 dòng mới      
+\ : báo cho trình duyệt là xuống dòng
+"kakaka \   			-> kq : kakaka dc phep xuong dòng
+dc phep xuong dòng"
+
+typeof()  : kiểm tra định dạng 
+*--- ép kiểu sang chuỗi : string.toString()
+
+-------------------------------------------------------------------------------------------

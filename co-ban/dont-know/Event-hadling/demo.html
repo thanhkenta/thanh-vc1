@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-on:click</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="greet">Webcome</button>
+	</div>
+<!-- gọi phương thức inline -->
+	<div id="app2">
+		<button v-on:click="say('xin chao ae')">xin chào</button>
+		<button v-on:click="say('alo alo alo')">Alo</button>
+	</div>
+<!-- sd hủy bỏ sự kiện -->
+	<div id="app3">
+		<button v-on:click="warn('Chưa submit được form.', $event)">Submit</button>
+	</div>
+	<div id="app4">
+		<input type="text" v-model.number="number"> <br>
+		<h3>{{number}}</h3>
+	</div>
+	<script>
+		var thanh =  new Vue({
+			el:'#app',
+			data:{
+				message:'Hello everyone'
+			},
+			methods:{
+				greet:function(event){
+					alert('xin chao' + this.message + '!')
+					if (event) {
+					alert(event.target.tagName)//lay doi tuong do la button
+				}
+				}
+
+			}
+		})
+
+		var thanh2 = new Vue({
+			el:'#app2',
+			data:{
+
+			},
+			methods:{
+				say:function(say){
+					alert(say)
+				}
+			}
+		})
+//sd hủy
+		var thanh3 = new Vue({
+			el:'#app3',
+			methods:{
+				  warn: function (message, event) {
+			    // bây giờ chúng ta có thể truy xuất đến sự kiện DOM native
+			    if (event) event.preventDefault() // hủy bỏ sự kiện
+			    alert(message)
+  				}
+			}
+
+		})
+		var thanh4 = new Vue({
+			el:'#app4',
+			data:{
+				name:'thanh',
+				number:11
+			}
+
+		})
+	</script>
+</body>
+</html>

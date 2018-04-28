@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tạo computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+	<div id="app">
+		<h3>Tên Người dùng</h3>
+		FirstName : <input type="text" v-model="firstName">
+		LasttName : <input type="text" v-model="lastName">
+		<h4>FullName: {{fullName}}</h4>
+	</div>
+</body>
+<script>
+	new Vue({
+		el:'#app',
+		data:{
+			firstName:'Nguyen',
+			lastName:'Thanh',
+			fullName:'Nguyen Thanh'
+		},
+		watch:{
+			firstName:function(val){ 
+				this.fullName = val + " " + this.lastName; // fullName = firstName(nhapvao) + lastName
+			},
+			lastName:function(val){
+				this.fullName = this.firstName + " " + val;
+			}
+		}
+	});
+</script>
+</html>

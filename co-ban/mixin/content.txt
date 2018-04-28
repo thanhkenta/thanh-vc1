@@ -1,0 +1,7 @@
+﻿-hòa chộn mixin vào trong tùy chọn của component đó.
+
+-  nếu key trùng nhau thì component sẽ đc ưu tiên 
+
+- hook trong mixin sẽ đc gọi trước component
+
+---> mixin trở thành 1 phần của component

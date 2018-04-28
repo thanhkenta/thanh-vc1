@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tạo component</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+	<div id="app">
+		<h3>Sự khác biệt giữa computed với method</h3>
+		<h3 style="background: gray">{{random}}</h3>
+		<h3 style="background: gray">{{random}}</h3>
+		<hr><hr>
+		<h3>{{random1()}}</h3>
+		<h3>{{random1()}}</h3>	
+	</div>
+	
+</body>
+<script>
+/*	Nhưng computed sẽ khác với methods ở chỗ computed được lưu vào cache và computed
+ sẽ chỉ được thay đổi khi dữ liệu bên trong nó thay đổi.
+
+VD: Như với trường hợp computed random ở trên thì khi mà biến name không thay đổi(Math.random()) thì
+ chương trình sẽ in ra luôn kết quả của lần trước đó mà không phải thực thi lại tiến trình bên trong nó.
+*/
+	new Vue({
+		el:"#app",
+		methods:{	// là 1 hàm nên mọi lúc nó gọi -> trả về 1 giá trị khác
+			random1:function(){
+				return Math.random();
+			}
+		},
+		computed:{	// mỗi lần đc gọi giá trị cuối cùng cập nhập cho tất cả
+			random:function(){
+				return Math.random();
+			}
+		}
+	})
+</script>
+</html>

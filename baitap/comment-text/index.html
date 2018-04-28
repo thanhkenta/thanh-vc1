@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Đếm số lần bấm</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="main.js" type="text/javascript" charset="utf-8" async defer></script>
+</head>
+<body>
+	<div id="app">
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/vue-post-photo.jpg" class="main-photo">
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/vue-main-profile.jpg" class="main-profile">
+  <div class="main-info">
+    <span class="name">Julianne Delfina</span> 
+    <h3>"It's lovely after it rains"</h3>
+  </div>
+  <hr>
+  <ul>
+  <!--<individual-comment></individual-comment>   k sd đc(loi render) vì sau ul là li  [thay thế là: is]-->
+    <li
+      is="individual-comment"
+      v-for="comment in comments"
+      v-bind:commentpost="comment"
+    ></li>
+    <!--props là nd comment vừa mới loop ra thành các li -->
+  </ul>
+  <!--newComment mđ là rỗng + khi keyup.enter(thêm kí tự thì sd hàm addComment[newComment đã thay đổi])-->
+  <input
+    v-model="newComment"
+    v-on:keyup.enter="addComment"
+    placeholder="Add a comment"
+  >
+</div>
+</body>
+</html>

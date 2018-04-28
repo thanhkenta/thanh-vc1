@@ -1,0 +1,8 @@
+﻿Tìm hiểu thêm :https://viblo.asia/p/coding-don-gian-va-linh-hoat-hon-voi-vuejs-57rVRqb9M4bP
+
+- Directive
+
+Ngoài các directive v-model v-show -> đăng kí thêm đc các diretive tùy biến của riêng mình
+<input v-thanh>		<input v-focus>
+
+-Filter : áp dụng lọc định dạng văn bản

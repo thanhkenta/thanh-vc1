@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Event</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+	<p>Modifiers cho phép hđ 1 lần</p>
+	<div id="event">
+		<button v-on:click.once="clickOnce" v-bind:style="styleObj">Click Once</button> Ouput :{{num}} <br> <br>
+		<button v-on:click="clicked" v-bind:style="styleObj">Clicked</button> Output : {{num1}}
+	</div>
+</body>
+<script>
+	new Vue({
+		el:'#event',
+		data:{
+			num:0,
+			num1:0,
+			styleObj:{
+				background:'red',
+				cursor:'pointer',
+				padding:'8px 16px',
+				verticalAlign:'middle',
+				color:'white'
+			}
+		},
+		methods:{
+			clickOnce:function(){
+				this.num++;
+			},
+			clicked:function(){
+				this.num1++;
+			}
+		}
+	})
+</script>
+</html>

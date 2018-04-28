@@ -1,0 +1,4 @@
+v-bind:href="href"
+
+
+link : https://trungit.com/vuejs-binding.html

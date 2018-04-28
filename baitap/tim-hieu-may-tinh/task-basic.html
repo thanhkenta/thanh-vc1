@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Task</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<div id="tasks">
+			<div>
+				<a href="http://timhieumaytinh.com/khoa-hoc/"><img src="http://timhieumaytinh.com/wp-content/uploads/2015/11/THMT-Logo-340x100.png"></a>
+				<h2>Nhiệm Vụ Mới ({{tasks.length}})</h2>
+				<ol class="list-group">
+					<li v-for="task in tasks" class="list-group-item">
+						{{task.body}}
+						<button @click="removeTask(task.id)">&#10007;</button>
+					</li>
+				</ol>
+				
+			</div>
+			
+			<form @submit="addTask">
+				<div class="form-group">
+					<input v-model="newTask" class="form-control" placeholder="Tôi muốn...">
+				</div>
+				
+				<button class="btn btn-primary" type="submit">Thêm Nhiệm Vụ</button>
+			</form>
+			<hr>
+			<pre>{{$data | json}}</pre>
+		</div>				
+	</div>
+
+	
+</body>
+<script>
+	new Vue({
+	el: '#tasks',
+	
+	data: {
+		tasks: [
+			{body:"Thiết Kế Web", completed: false,id:1}, 			
+		],
+		
+		newTask: ''
+	},
+	
+	methods: {
+		addTask: function(e){
+			e.preventDefault();
+      if(this.newTask){
+      	let id_map = this.tasks.slice(this.tasks.length-1);
+        console.log(id_map);
+        let leng = this.tasks.length-1;
+        console.log(leng);
+        let id_new = this.tasks[leng].id;
+        let id_tang = id_new + 1;
+        this.tasks.push({
+          body: this.newTask,
+          completed: false,
+          id:id_tang
+          //id:new Date().getTime()
+        });
+        this.newTask = '';
+      }
+		},
+		removeTask: function(id){
+			//this.tasks.$remove(task);
+      for(let i = 0 ; i < this.tasks.length; i++){
+      	if(this.tasks[i].id == id){
+        	this.tasks.splice(i,1);
+        }
+      }
+		}
+	}
+});
+
+</script>
+</html>

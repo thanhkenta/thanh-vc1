@@ -1,0 +1,58 @@
+﻿-*concat(arr1,arr2,...) : nối các mảng với nhau thành 1 mảng mới
+
+-* every() giống some  : Trả về true nếu mỗi phần tử trong mảng này thỏa mãn hàm kiểm tra đã cho.
+https://freetuts.net/hoc-javascript/every_function.html
+
+-* forEach(callback) ==   var cherri = ['ngon','bo','re'];	-> tạo vòng lặp mảng nhanh hơn
+   			 cherri.forEach(function(values){
+     			 console.log(values);
+    			 })
+-> gọi 1 hàm cho mỗi phần tử trong mảng
+
+-* map() giống forEach()    == 	var numbers = [5, 10, 20, 22, 60];
+				var new_number = numbers.map(function(item){
+  				return item * 2; // nhân đôi giá trị
+				});
+				console.log(new_number);
+				// Kết quả: [10, 20, 40, 44, 120]
+-> trả về return (mỗi lần lặp giá trị là item tương ứng)
+
+-* filter() giống vs map() == var numbers = [5, 10, 20, 22, 60, 75, 90];
+			      var new_numbers = numbers.filter(function(item){
+ 			      return (item % 2 == 0);
+				});
+			      console.log(new_numbers);
+			      // Kết quả: [10, 20, 22, 60, 90]
+->-> truyền tham số vào và tham số này sẽ xử lý cho mỗi lần vòng lặp
+-> true thì nhận flase thì k nhận (lọc kq)
+--------------------------------------------------------------------------------------
+
+-* Tìm kiếm
+ indexOf() -> trả về vị trí đầu tiên tìm thấy xuất hiện trong mảng  (0,1,2,..)
+ lastIndexOf() -> trả về vị trí cuối cùng
+-* Kết hợp tất cả phần tử trong một mảng vào trong một chuỗi.
+  array.join("-")     ngăn cách bởi -  , k truyền thì mặc định là dấu ,
+
+-* reduce()  :  tính tổng các số trong mảng
+-* reduceright : trừ từ số cuối cùng lên đến đầu tiên
+-* reverse()  : đảo ngược các kí tự trong mảng
+
+-* thêm bớt phần tử : 
+- pop() : xóa bỏ phần tử cuối cùng
+- push() : thêm 1 or nhiều vào cuối mảng == array.push("thanh","nguyễn",...)
+
+- shift() : loại bỏ phần tử đầu tiêm của mảng
+- unshift(): thêm 1 or nhiều vào đầu mảng 
+
+-* lấy ra các phần tử chỉ định
+- array.slice(1,4) : -> lấy ra các value phần tử 1,2,3.  k lấy phần tử end 
+
+-* toString() : chuyển đổi 1 mảng sang chuỗi
+
+-*** then(). sử lý các cuộc gọi k đồng bộ (callback)   
+--> API được thiết kế để giải quyết vấn đề làm tổ này và vấn đề xử lý lỗi.
+--> giúp kết nối nhiều lần gọi
++Mỗi tác vụ không đồng bộ sẽ trả về một đối tượng hứa hẹn
++Mỗi đối tượng lời hứa sẽ có một chức năng sau đó có thể lấy
+ hai đối số, một trình xử lý thành công và xử lý lỗi.
++ thuc hien 1 cuoc goi qua may chu
